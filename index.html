@@ -1,0 +1,42 @@
+<html>
+<head>
+    <title>test</title>
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+
+<body>
+    
+    <div id="wrapper">
+        <div id="tableArea" onmousedown="return false" oncontextmenu="return false">
+        
+        
+            <div id="end"></div>       
+        </div>
+
+        
+            <button id="genButton" class="button" disabled>New Maze</button>
+
+            <div class="button">
+                <button id="solveButton" disabled>Solve Maze</button>
+                <br><br>
+                <input type="range" min="1" max="300" value="15" id="slider">
+            </div>
+
+            <div class="button">
+                <button id="creButton" disabled>Create New Maze</button>
+                <br><br>
+                <button id="saveButton">Save Maze</button>
+            </div>
+            
+
+    </div>
+    
+    
+</body>
+
+<script src="main.js"></script>
+<script src="solve.js"></script>
+<script src="create.js"></script>
+
+</html>
