@@ -25,12 +25,17 @@ async function dfs(current){        //-xSize up || +xSize down || -1 left || +1 
     var moves = [1, xSize, -xSize, -1]
     var possible = [] 
     
-    if(current == end){
+    if(nodes[current].className.includes("nodeTried")){ //current is already tried
+        return -1
+    }
+
+    if(current == end){ //current is the end
         nodes[current].className = "node nodeFinish nodeAnim"        
         return 0
     }
-    if(current != start){
-        if(nodes[current].className.includes("nodeAnim")){
+
+    if(current != start){ //dont recolor start
+        if(nodes[current].className.includes("nodeAnim")){  // if it was already animated reset it
 
             nodes[current].className = "node nodeTried"
             await new Promise(r => setTimeout(r, 8)); // wait for html to reset animation
