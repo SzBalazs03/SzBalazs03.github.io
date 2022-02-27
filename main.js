@@ -29,9 +29,7 @@ function resetNodes(){
     }   
     start = -1
     end = -1
-    map = "" 
-
-    disableInteraction(false) 
+    map = ""     
 }
 
 function generateNodes() {    

@@ -26,7 +26,7 @@ async function solveMaze(){
             console.log("algorithm not selected")
             break;
     }
-    
+    disableInteraction(false) 
 
     stopSample = true       
     
