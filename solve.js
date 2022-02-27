@@ -26,11 +26,11 @@ async function dfs(current){        //-xSize up || +xSize down || -1 left || +1 
     var possible = [] 
     
     if(current == end){
-        nodes[current].className = "node nodeFinish"
+        nodes[current].className = "node nodeFinish nodeAnim"        
         return 0
     }else{
         if(current != start && current != end){
-            nodes[current].className = "node nodeTried"
+            nodes[current].className = "node nodeTried nodeAnim"
         }
         await new Promise(r => setTimeout(r, waitTime));
     }
@@ -44,7 +44,7 @@ async function dfs(current){        //-xSize up || +xSize down || -1 left || +1 
 
         if(next == start) {continue} // dont go over start node
 
-        if(nodes[next].className == "node nodeTried") {continue} //already tried
+        if(nodes[next].className.includes("Tried")) {continue} //already tried
 
         if(next <= 0 || next >= map.length) {continue} // outside map top-bottom
 
@@ -52,7 +52,7 @@ async function dfs(current){        //-xSize up || +xSize down || -1 left || +1 
 
         possible[i] = next
         i++
-        nodes[next].className = "node nodePossiblePath"
+        nodes[next].className = "node nodePossiblePath nodeAnim"
         await new Promise(r => setTimeout(r, waitTime));
     }
     
@@ -68,9 +68,11 @@ async function dfs(current){        //-xSize up || +xSize down || -1 left || +1 
     }
 
     for(var i = 0; i < possible.length; i++){   //recursive call
-        if(await dfs(possible[i]) == 0){
-            if(current != start && current != end){
+        if(await dfs(possible[i]) == 0){            
+            if(current != start && current != end){                
                 nodes[current].className = "node nodeCorrect"
+                await new Promise(r => setTimeout(r, 8));
+                nodes[current].classList.add("nodeAnim")
             }
             
             await new Promise(r => setTimeout(r, waitTime));            
@@ -94,17 +96,17 @@ function distance(a, b){
 
 function getMapFromNodes(){
     for(var i = 0; i < nodes.length; i++){
-        if(nodes[i].className == "node nodeEmpty"){
+        if(nodes[i].className.includes("Empty")){
             map += '1'
         }
-        else if(nodes[i].className == "node nodeFull"){
+        else if(nodes[i].className.includes("Full")){
             map += '0'
         }
-        else if(nodes[i].className == "node nodeStart"){
+        else if(nodes[i].className.includes("Start")){
             map += '1'
             start = i
         }
-        else if(nodes[i].className == "node nodeFinish"){
+        else if(nodes[i].className.includes("Finish")){
             map += '1'
             end = i
         }        

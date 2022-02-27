@@ -29,7 +29,7 @@ function makeMazeInteractable(bool){
 
 function removeStartOrFinish(str){    
     for(var i = 0; i< nodes.length; i++){
-        if(nodes[i].className == "node node".concat(str)){
+        if(nodes[i].className.includes(str)){
             nodes[i].className = "node nodeEmpty"
         }
     }
@@ -37,14 +37,14 @@ function removeStartOrFinish(str){
 
 function mEnter(e){    
     if(e.buttons != 1) {return}
-    this.className = "node nodeFull"            
+    this.className = "node nodeFull nodeAnim"            
 }
 
 function click(){                
     removeStartOrFinish("Start")
-    this.className = "node nodeStart"
+    this.className = "node nodeStart nodeAnim"
 }
 function ctMenu(){
     removeStartOrFinish("Finish")
-    this.className = "node nodeFinish"
+    this.className = "node nodeFinish nodeAnim"
 }

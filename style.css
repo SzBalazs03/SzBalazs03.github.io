@@ -1,27 +1,70 @@
+:root{
+    --nodeTried-half-bgC: Teal;
+    --nodeTried-full-bgC: crimson;
+
+    --nodeFull-half-bgC: grey;
+    --nodeFull-full-bgC: black;
+
+    --nodeStart-half-bgC: gold;
+    --nodeStart-full-bgC: purple;
+
+    --nodeFinish-half-bgC: lightcoral;
+    --nodeFinish-full-bgC: green;
+
+    --nodeCorrect-half-bgC: slateblue;
+    --nodeCorrect-full-bgC: lime;
+
+    --nodePossiblePath-half-bgC: slateblue;
+    --nodePossiblePath-full-bgC: rgb(255, 230, 0);
+
+    --animDur: 1.5s;
+}
 
 .nodeFull{
-    background-color: black;
+    --colorHalf: var(--nodeFull-half-bgC);
+    --colorFull: var(--nodeFull-full-bgC);
+    
 }
 
 .nodeFinish{
-    background-color: green;
+    --colorHalf: var(--nodeFinish-half-bgC);
+    --colorFull: var(--nodeFinish-full-bgC);
+    
 }
 
 .nodeStart{
-    background-color: purple;
+    --colorHalf: var(--nodeStart-half-bgC);
+    --colorFull: var(--nodeStart-full-bgC);
+    
 }
 
 .nodeCorrect{
-    background-color: greenyellow;
+    --colorHalf: var(--nodeCorrect-half-bgC);
+    --colorFull: var(--nodeCorrect-full-bgC);
+    
 }
 
 .nodeTried{
-    background-color: red;
+    --colorHalf: var(--nodeTried-half-bgC);
+    --colorFull: var(--nodeTried-full-bgC);
+    
 }
 
 .nodePossiblePath{
-    background-color: yellow;
+    --colorHalf: var(--nodePossiblePath-half-bgC);
+    --colorFull: var(--nodePossiblePath-full-bgC);
+    
 }
+
+.nodeAnim{
+    animation-name: nodeAnim;
+    animation-duration: var(--animDur);
+    animation-delay: 0s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-out;
+}
+
 
 .nodeEmpty{
     background-color: aliceblue;
@@ -29,6 +72,21 @@
 
 .nodeEmpty:hover{
     background-color: aquamarine;
+}
+
+@keyframes nodeAnim {
+    0% {
+        transform: scale(0.3);
+        background-color: aliceblue;
+    }
+    40%{
+        transform: scale(1.2);
+        background-color: var(--colorHalf);
+    }
+    100%{
+        transform: scale(1);
+        background-color: var(--colorFull);
+    }
 }
 
 .node{
