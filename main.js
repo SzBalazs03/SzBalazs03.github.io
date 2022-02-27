@@ -3,7 +3,9 @@ document.body.onload = init;
 function init() {
     tableArea = document.getElementById("tableArea")  
     nodes = tableArea.children    
-    map = ""  
+    map = "" 
+    xSize = 45
+    ySize = 23 
     
     generateNodes()
     initializeButtons()
@@ -30,7 +32,7 @@ function resetNodes(){
 
 function generateNodes() {    
     lastDiv = document.getElementById("end");
-    for (i = 0; i < 1035; i++) {
+    for (i = 0; i < xSize * ySize; i++) {
         // create a new div element
         const newDiv = document.createElement("div");
 

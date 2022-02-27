@@ -21,14 +21,17 @@ async function solveMaze(){
     
 }
 
-async function dfs(current){        //-45 up || +45 down || -1 left || +1 right
-    var moves = [1, 45, -45, -1]
+async function dfs(current){        //-xSize up || +xSize down || -1 left || +1 right
+    var moves = [1, xSize, -xSize, -1]
     var possible = [] 
     
     if(current == end){
+        nodes[current].className = "node nodeFinish"
         return 0
     }else{
-        nodes[current].className = "node nodeTried"
+        if(current != start && current != end){
+            nodes[current].className = "node nodeTried"
+        }
         await new Promise(r => setTimeout(r, waitTime));
     }
     
@@ -39,11 +42,13 @@ async function dfs(current){        //-45 up || +45 down || -1 left || +1 right
 
         if(map[next] != 1) {continue} // not empty node
 
+        if(next == start) {continue} // dont go over start node
+
         if(nodes[next].className == "node nodeTried") {continue} //already tried
 
         if(next <= 0 || next >= map.length) {continue} // outside map top-bottom
 
-        if((j == 0 && next % 45 == 0) || (j == 3 && current % 45 == 0)) {continue} // outside map left-right        
+        if((j == 0 && next % xSize == 0) || (j == 3 && current % xSize == 0)) {continue} // outside map left-right        
 
         possible[i] = next
         i++
@@ -64,7 +69,10 @@ async function dfs(current){        //-45 up || +45 down || -1 left || +1 right
 
     for(var i = 0; i < possible.length; i++){   //recursive call
         if(await dfs(possible[i]) == 0){
-            nodes[current].className = "node nodeCorrect"
+            if(current != start && current != end){
+                nodes[current].className = "node nodeCorrect"
+            }
+            
             await new Promise(r => setTimeout(r, waitTime));            
             return 0
         }
@@ -74,10 +82,10 @@ async function dfs(current){        //-45 up || +45 down || -1 left || +1 right
 }
 
 function distance(a, b){
-    aX = a % 45
-    aY = Math.floor(a / 45)
-    bX = b % 45
-    bY = Math.floor(b / 45)
+    aX = a % xSize
+    aY = Math.floor(a / xSize)
+    bX = b % xSize
+    bY = Math.floor(b / xSize)
 
     cX = bX - aX
     cY = bY - aY
