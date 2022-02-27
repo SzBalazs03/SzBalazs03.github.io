@@ -13,10 +13,12 @@ function init() {
 
 function initializeButtons() { 
     let solveButton = document.getElementById("solveButton")       
+    let resetButton = document.getElementById("resetButton")       
     
     disableInteraction(false)
     
     solveButton.addEventListener("click", function(){ solveMaze() })
+    resetButton.addEventListener("click", function(){ resetNodes() })
 
     mazeBuilder()    
 }

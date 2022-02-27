@@ -71,7 +71,7 @@ async function dfs(current){        //-xSize up || +xSize down || -1 left || +1 
         if(await dfs(possible[i]) == 0){            
             if(current != start && current != end){                
                 nodes[current].className = "node nodeCorrect"
-                await new Promise(r => setTimeout(r, 8));
+                await new Promise(r => setTimeout(r, 8)); // wait for html to reset animation
                 nodes[current].classList.add("nodeAnim")
             }
             
