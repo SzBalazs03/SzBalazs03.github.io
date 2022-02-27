@@ -1,5 +1,5 @@
 :root{
-    --nodeTried-half-bgC: Teal;
+    --nodeTried-half-bgC: LightSeaGreen;
     --nodeTried-full-bgC: crimson;
 
     --nodeFull-half-bgC: grey;
@@ -11,13 +11,13 @@
     --nodeFinish-half-bgC: lightcoral;
     --nodeFinish-full-bgC: green;
 
-    --nodeCorrect-half-bgC: slateblue;
+    --nodeCorrect-half-bgC: rgb(116, 105, 187);
     --nodeCorrect-full-bgC: lime;
 
-    --nodePossiblePath-half-bgC: slateblue;
+    --nodePossiblePath-half-bgC: rgb(92, 72, 223);
     --nodePossiblePath-full-bgC: rgb(255, 230, 0);
 
-    --animDur: 1.3s;
+    --animDur: 0.8s;
 }
 
 .nodeFull{
@@ -79,7 +79,7 @@
         transform: scale(0.2);
         background-color: aliceblue;
     }
-    40%{
+    35%{
         transform: scale(1.3);
         background-color: var(--colorHalf);
     }
@@ -96,15 +96,34 @@
     margin: 1px 1px 1px 1px;
 }
 
-.button{ 
+.buttonDiv{ 
+    width: 10%;
     float: left; 
     margin-top: 9px;
     margin-left: 4.3%;    
 }
+button {
+    width: 100%;
+    height: 40px;
+    padding: 10px 25px;
+    border: 2px solid #000;
+    font-family: 'Lato', sans-serif;
+    font-weight: 500;
+    background: whitesmoke;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+  }   
+  
+  .btn:hover {
+     box-shadow:
+     -7px -7px 20px 0px rgba(255, 255, 255, 0.600),
+     -4px -4px 5px 0px rgba(255, 255, 255, 0.600),
+     7px 7px 20px 0px rgba(0, 0, 0, 0.400),
+     4px 4px 5px 0px rgba(0, 0, 0, 0.400);
+  }
 
-#slider{
-    width: 80%;
-}
 
 
 #tableArea{
@@ -122,5 +141,5 @@
 }
 
 body{
-    background-color: steelblue;
+    background-color:LightSkyBlue;
 }
