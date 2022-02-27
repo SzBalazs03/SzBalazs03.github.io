@@ -30,6 +30,8 @@ function resetNodes(){
     start = -1
     end = -1
     map = "" 
+
+    disableInteraction(false) 
 }
 
 function generateNodes() {    

@@ -10,7 +10,7 @@ async function solveMaze(){
     }
            
     disableInteraction(true)
-    waitTime = 25
+    var waitTime = 25
     stopSample = false
     sampleWaitTime()
 
@@ -20,7 +20,7 @@ async function solveMaze(){
             await dfs(start) 
             break;
         case "aStar":
-            console.log("A*")
+            await aStar()
             break;
         default:
             console.log("algorithm not selected")
@@ -28,8 +28,7 @@ async function solveMaze(){
     }
     
 
-    stopSample = true
-    disableInteraction(false)      
+    stopSample = true       
     
 }
 

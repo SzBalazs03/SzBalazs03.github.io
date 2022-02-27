@@ -1,6 +1,6 @@
 async function dfs(current){        //-xSize up || +xSize down || -1 left || +1 right
-    var moves = [1, xSize, -xSize, -1]
-    var possible = [] 
+    let moves = [1, xSize, -xSize, -1]
+    let possible = [] 
     
     if(nodes[current].className.includes("nodeTried")){ //current is already tried
         return -1
@@ -25,10 +25,10 @@ async function dfs(current){        //-xSize up || +xSize down || -1 left || +1 
     }
     await new Promise(r => setTimeout(r, waitTime));
     
-    var i = 0
-    for(var j = 0; j < 4; j++) //fill possible array
+    let i = 0
+    for(let j = 0; j < 4; j++) //fill possible array
     {
-        next = current + moves[j]
+        let next = current + moves[j]
 
         if(map[next] != 1) {continue} // not empty node
 
@@ -46,18 +46,18 @@ async function dfs(current){        //-xSize up || +xSize down || -1 left || +1 
         await new Promise(r => setTimeout(r, waitTime));
     }
     
-    for(var i = possible.length - 1; i >= 0; i--){   //sort possible moves based on distance from endNode
-        for(var j = 0; j < i; j++){
+    for(let i = possible.length - 1; i >= 0; i--){   //sort possible moves based on distance from endNode
+        for(let j = 0; j < i; j++){
             if(distance(possible[j], end) > distance(possible[j+1], end)){
                 //swap them
-                var temp = possible[j]
+                let temp = possible[j]
                 possible[j] = possible[j+1]
                 possible[j+1] = temp
             }
         }
     }
 
-    for(var i = 0; i < possible.length; i++){   //recursive call
+    for(let i = 0; i < possible.length; i++){   //recursive call
         if(await dfs(possible[i]) == 0){            
             if(current != start && current != end){                
                 nodes[current].className = "node nodeCorrect"

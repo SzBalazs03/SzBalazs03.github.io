@@ -80,7 +80,7 @@
         background-color: aliceblue;
     }
     35%{
-        transform: scale(1.3);
+        transform: scale(1.2);
         background-color: var(--colorHalf);
     }
     100%{
