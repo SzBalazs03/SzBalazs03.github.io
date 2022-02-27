@@ -14,7 +14,19 @@ async function solveMaze(){
     stopSample = false
     sampleWaitTime()
 
-    await dfs(start) 
+    algSelect = document.getElementById("algorithm")     
+    switch (algSelect.value) {
+        case "dfs":
+            await dfs(start) 
+            break;
+        case "aStar":
+            console.log("A*")
+            break;
+        default:
+            console.log("algorithm not selected")
+            break;
+    }
+    
 
     stopSample = true
     disableInteraction(false)      
