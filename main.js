@@ -1,23 +1,22 @@
 document.body.onload = init;
 
 function init() {
-    generateNodes()
-    initializeButtons()
-
     tableArea = document.getElementById("tableArea")  
     nodes = tableArea.children    
-    map = ""   
-
+    map = ""  
+    
+    generateNodes()
+    initializeButtons()
 }
 
 function initializeButtons() { 
-    let solveButton = document.getElementById("solveButton")
-    let creButton = document.getElementById("creButton")     
+    let solveButton = document.getElementById("solveButton")       
     
     disableInteraction(false)
     
     solveButton.addEventListener("click", function(){ solveMaze() })
-    creButton.addEventListener("click", function(){ mazeBuilder()})     
+
+    mazeBuilder()    
 }
 
 function resetNodes(){     
