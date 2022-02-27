@@ -28,12 +28,20 @@ async function dfs(current){        //-xSize up || +xSize down || -1 left || +1 
     if(current == end){
         nodes[current].className = "node nodeFinish nodeAnim"        
         return 0
-    }else{
-        if(current != start && current != end){
+    }
+    if(current != start){
+        if(nodes[current].className.includes("nodeAnim")){
+
+            nodes[current].className = "node nodeTried"
+            await new Promise(r => setTimeout(r, 8)); // wait for html to reset animation
+            nodes[current].classList.add("nodeAnim")
+
+        }else{
             nodes[current].className = "node nodeTried nodeAnim"
         }
-        await new Promise(r => setTimeout(r, waitTime));
+        
     }
+    await new Promise(r => setTimeout(r, waitTime));
     
     var i = 0
     for(var j = 0; j < 4; j++) //fill possible array
