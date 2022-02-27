@@ -13,12 +13,14 @@ function init() {
 
 function initializeButtons() { 
     let solveButton = document.getElementById("solveButton")       
-    let resetButton = document.getElementById("resetButton")       
+    let resetButton = document.getElementById("resetButton")  
+    let againButton = document.getElementById("againButton")     
     
     disableInteraction(false)
     
     solveButton.addEventListener("click", function(){ solveMaze() })
     resetButton.addEventListener("click", function(){ resetNodes() })
+    againButton.addEventListener("click", function(){ drawAgain()})
 
     mazeBuilder()    
 }
@@ -60,4 +62,27 @@ function disableInteraction(bool){
             element.disabled = false
         });        
     }
+}
+
+async function drawAgain(){
+    if(map == ""){return}
+    if(start == -1 || end == -1){return}
+
+    disableInteraction(true)
+    for (i = 0; i < map.length; i++) {
+        if (map[i] == 0) {
+            nodes[i].className = "node nodeFull"
+            await new Promise(r => setTimeout(r, 8));
+            nodes[i].classList.add("nodeAnim")
+        }else{
+            nodes[i].className = "node nodeEmpty"            
+        }  
+
+    }
+    nodes[start].className = "node nodeStart" 
+    nodes[end].className = "node nodeFinish" 
+    await new Promise(r => setTimeout(r, 8));
+    nodes[start].classList.add("nodeAnim")
+    nodes[end].classList.add("nodeAnim")
+    disableInteraction(false)
 }

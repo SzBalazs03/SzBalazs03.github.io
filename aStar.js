@@ -26,7 +26,7 @@ async function aStar()
         // current is the node having the lowest fScore in openSet
 
         if(current == end){
-            shortestPath(cameFrom, cameFrom[current])
+            await shortestPath(cameFrom, cameFrom[current])
             return 0
         }
 
