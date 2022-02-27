@@ -3,8 +3,7 @@
 function mazeBuilder(){
     resetNodes()
     makeMazeInteractable(true)
-
-    document.getElementById("saveButton").style.display = "block"
+    
 }
 
 function makeMazeInteractable(bool){
@@ -34,41 +33,6 @@ function removeStartOrFinish(str){
             nodes[i].className = "node nodeEmpty"
         }
     }
-}
-
-function uploadMaze(){  
-    
-    if(map == "")
-    {
-        getMapFromNodes()
-    }    
-
-    if(start == -1 || end == -1){
-        map = ""
-        alert("No start or finish node selected.")
-        return -1
-    }    
-
-    let xhr = new XMLHttpRequest();  
-
-    xhr.open('POST', 'insMaze.php?');        
-    
-    xhr.onload = function(){
-        if (xhr.status != 200)  // analyze HTTP status of the response
-        { 
-            alert(`Error ${xhr.status}: ${xhr.statusText}`)
-        } else{
-            alert(`${xhr.response}`)
-        }
-    }
-    
-    var params = [
-        map,
-        start,
-        end
-    ]
-
-    xhr.send(params)
 }
 
 function mEnter(e){    

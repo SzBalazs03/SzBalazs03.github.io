@@ -5,6 +5,7 @@ async function solveMaze(){
 
     if(start == -1 || end == -1){
         alert("No start or finish node selected.")
+        map = ""
         return -1
     }
            
@@ -84,8 +85,6 @@ function distance(a, b){
 }
 
 function getMapFromNodes(){
-    if(map != ""){map=""}
-
     for(var i = 0; i < nodes.length; i++){
         if(nodes[i].className == "node nodeEmpty"){
             map += '1'
