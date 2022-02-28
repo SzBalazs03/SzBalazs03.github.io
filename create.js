@@ -1,7 +1,7 @@
 
 
 function mazeBuilder(){
-    resetNodes()
+    resetNodesTo("Empty")
     makeMazeInteractable(true)
     
 }
