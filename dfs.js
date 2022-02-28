@@ -42,10 +42,13 @@ async function dfs(current){        //-xSize up || +xSize down || -1 left || +1 
 
         possible[i] = next
         i++
-        nodes[next].className = "node nodePossiblePath nodeAnim"
+        if(next != end){
+            nodes[next].className = "node nodePossiblePath nodeAnim"
+        }
+        
         await new Promise(r => setTimeout(r, waitTime));
     }
-    
+    /*
     for(let i = possible.length - 1; i >= 0; i--){   //sort possible moves based on distance from endNode
         for(let j = 0; j < i; j++){
             if(distance(possible[j], end) > distance(possible[j+1], end)){
@@ -56,7 +59,7 @@ async function dfs(current){        //-xSize up || +xSize down || -1 left || +1 
             }
         }
     }
-
+    */
     for(let i = 0; i < possible.length; i++){   //recursive call
         if(await dfs(possible[i]) == 0){            
             if(current != start && current != end){                
