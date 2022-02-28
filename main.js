@@ -6,6 +6,7 @@ function init() {
     map = "" 
     xSize = 45
     ySize = 23 
+    solved = false
     
     generateNodes()
     initializeButtons()
@@ -34,7 +35,8 @@ function resetNodesTo(str){
     }   
     start = -1
     end = -1
-    map = ""     
+    map = ""   
+    solved = false  
 }
 
 function generateNodes() {    
@@ -89,6 +91,8 @@ async function drawAgain(){
     nodes[start].classList.add("nodeAnim")
     nodes[end].classList.add("nodeAnim")
 
+
+    solved = false
     makeMazeInteractable(true)
     disableInteraction(false)
 }

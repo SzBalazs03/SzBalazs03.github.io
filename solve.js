@@ -1,5 +1,10 @@
 async function solveMaze(){ 
-           
+    
+    if(solved){
+        alert("Maze already solved")    
+        return
+    }
+
     getMapFromNodes()
     
 
@@ -26,10 +31,14 @@ async function solveMaze(){
             console.log("algorithm not selected")
             break;
     }
+
+    solved = true
+    stopSample = true  
+    
     makeMazeInteractable(true)
     disableInteraction(false) 
 
-    stopSample = true       
+        
     
 }
 
