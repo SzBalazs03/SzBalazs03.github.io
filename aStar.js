@@ -54,7 +54,7 @@ async function aStar()
 
             if(next == start) {continue} // dont go over start node           
 
-            if(next <= 0 || next >= map.length) {continue} // outside map top-bottom
+            if(next < 0 || next >= map.length) {continue} // outside map top-bottom
 
             if((i == 0 && next % xSize == 0) || (i == 3 && current % xSize == 0)) {continue} // outside map left-right    
             

@@ -34,7 +34,7 @@ async function dfs(current){        //-xSize up || +xSize down || -1 left || +1 
 
         if(next == start) {continue} // dont go over start node        
 
-        if(next <= 0 || next >= map.length) {continue} // outside map top-bottom
+        if(next < 0 || next >= map.length) {continue} // outside map top-bottom
 
         if((j == 0 && next % xSize == 0) || (j == 3 && current % xSize == 0)) {continue} // outside map left-right    
         
