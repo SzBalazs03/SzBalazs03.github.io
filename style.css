@@ -17,10 +17,11 @@
     --nodePossiblePath-half-bgC: rgb(92, 72, 223);
     --nodePossiblePath-full-bgC: rgb(255, 230, 0);
 
-    --animDur: 0.8s;
+    --animDur: 0.9s;
 }
 
 .nodeFull{
+    background-color: aliceblue;
     --colorHalf: var(--nodeFull-half-bgC);
     --colorFull: var(--nodeFull-full-bgC);
     
@@ -71,7 +72,7 @@
 }
 
 .nodeEmpty:hover{
-    background-color: aquamarine;
+    background-color: lightseagreen;
 }
 
 @keyframes nodeAnim {
@@ -94,6 +95,7 @@
     height: 4%;
     width: 2.055%;
     margin: 1px 1px 1px 1px;
+    border-radius: 3px;
 }
 
 .buttonDiv{ 
