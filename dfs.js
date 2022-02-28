@@ -32,13 +32,13 @@ async function dfs(current){        //-xSize up || +xSize down || -1 left || +1 
 
         if(map[next] != 1) {continue} // not empty node
 
-        if(next == start) {continue} // dont go over start node
-
-        if(nodes[next].className.includes("Tried")) {continue} //already tried
+        if(next == start) {continue} // dont go over start node        
 
         if(next <= 0 || next >= map.length) {continue} // outside map top-bottom
 
-        if((j == 0 && next % xSize == 0) || (j == 3 && current % xSize == 0)) {continue} // outside map left-right        
+        if((j == 0 && next % xSize == 0) || (j == 3 && current % xSize == 0)) {continue} // outside map left-right    
+        
+        if(nodes[next].className.includes("Tried")) {continue} //already tried
 
         possible[i] = next
         i++
