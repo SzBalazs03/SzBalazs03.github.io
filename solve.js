@@ -1,8 +1,8 @@
 async function solveMaze(){ 
     
     if(solved){
-        alert("Maze already solved")    
-        return
+        await drawAgain()
+        await new Promise(r => setTimeout(r, 250));
     }
 
     getMapFromNodes()
@@ -34,7 +34,7 @@ async function solveMaze(){
 
     solved = true
     stopSample = true  
-    
+
     makeMazeInteractable(true)
     disableInteraction(false) 
 
