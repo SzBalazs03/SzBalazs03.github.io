@@ -4,12 +4,12 @@ async function solveMaze(){
     
 
     if(start == -1 || end == -1){
-        alert("No start or finish node selected.")
-        map = ""
+        alert("No start or finish node selected.")        
         return -1
     }
            
     disableInteraction(true)
+    makeMazeInteractable(false)
     var waitTime = 25
     stopSample = false
     sampleWaitTime()
@@ -26,6 +26,7 @@ async function solveMaze(){
             console.log("algorithm not selected")
             break;
     }
+    makeMazeInteractable(true)
     disableInteraction(false) 
 
     stopSample = true       
@@ -46,11 +47,8 @@ function distance(a, b){
 function getMapFromNodes(){
     if(map != ""){map = ""}
     
-    for(var i = 0; i < nodes.length; i++){
-        if(nodes[i].className.includes("Empty")){
-            map += '1'
-        }
-        else if(nodes[i].className.includes("Full")){
+    for(var i = 0; i < nodes.length; i++){        
+        if(nodes[i].className.includes("Full")){
             map += '0'
         }
         else if(nodes[i].className.includes("Start")){
@@ -60,6 +58,8 @@ function getMapFromNodes(){
         else if(nodes[i].className.includes("Finish")){
             map += '1'
             end = i
+        }else{
+            map += '1'
         }        
     }
 }
