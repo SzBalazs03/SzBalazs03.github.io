@@ -14,20 +14,23 @@ function init() {
 function initializeButtons() { 
     let solveButton = document.getElementById("solveButton")       
     let resetButton = document.getElementById("resetButton")  
-    let againButton = document.getElementById("againButton")     
+    let againButton = document.getElementById("againButton") 
+    let genButton = document.getElementById("genButton")    
     
     disableInteraction(false)
     
     solveButton.addEventListener("click", function(){ solveMaze() })
-    resetButton.addEventListener("click", function(){ resetNodes() })
+    resetButton.addEventListener("click", function(){ resetNodesTo("Empty") })
     againButton.addEventListener("click", function(){ drawAgain()})
+    genButton.addEventListener("click", function(){ genMaze()})
+
 
     mazeBuilder()    
 }
 
-function resetNodes(){     
+function resetNodesTo(str){     
     for(var i = 0; i< nodes.length; i++){
-        nodes[i].className = "node nodeEmpty"
+        nodes[i].className = "node node".concat(str)
     }   
     start = -1
     end = -1
