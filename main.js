@@ -68,10 +68,11 @@ function disableInteraction(bool){
 }
 
 async function drawAgain(){
-    if(map == ""){return}
+    getMapFromNodes()
     if(start == -1 || end == -1){return}
 
     disableInteraction(true)
+    makeMazeInteractable(false)
     for (i = 0; i < map.length; i++) {
         if (map[i] == 0) {
             nodes[i].className = "node nodeFull"
@@ -87,5 +88,7 @@ async function drawAgain(){
     await new Promise(r => setTimeout(r, 8));
     nodes[start].classList.add("nodeAnim")
     nodes[end].classList.add("nodeAnim")
+
+    makeMazeInteractable(true)
     disableInteraction(false)
 }
