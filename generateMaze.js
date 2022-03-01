@@ -11,7 +11,7 @@ async function genMaze(){
     await recursiveBacktracker(chosenStart)
 
 
-    solved = false
+    isSolved = false
     makeMazeInteractable(true)
     disableInteraction(false)
 }

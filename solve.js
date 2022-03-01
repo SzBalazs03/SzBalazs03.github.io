@@ -1,6 +1,6 @@
 async function solveMaze(){ 
     
-    if(solved){
+    if(isSolved){
         await drawAgain()
         await new Promise(r => setTimeout(r, 250));
     }
@@ -32,7 +32,7 @@ async function solveMaze(){
             break;
     }
 
-    solved = true
+    isSolved = true
     stopSample = true  
 
     makeMazeInteractable(true)
