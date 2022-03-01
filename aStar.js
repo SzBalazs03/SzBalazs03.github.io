@@ -90,16 +90,3 @@ async function aStar()
     }
 } 
 
-async function shortestPath(cameFrom, current){
-    while(current != start){       
-
-        nodes[current].className = "node nodeCorrect"
-        await new Promise(r => setTimeout(r, 8)); // wait for html to reset animation
-        nodes[current].classList.add("nodeAnim")
-
-        current = cameFrom[current]
-
-    }
-    
-    
-}
