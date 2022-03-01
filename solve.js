@@ -27,6 +27,9 @@ async function solveMaze(){
         case "aStar":
             await aStar()
             break;
+        case "bfs":
+            await bfs()
+            break;
         default:
             console.log("algorithm not selected")
             break;
