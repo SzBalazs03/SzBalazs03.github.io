@@ -43,8 +43,12 @@ function mEnter(e){
 function click(){                
     removeStartOrFinish("Start")
     this.className = "node nodeStart nodeAnim"
+    
+    if(isSolved){drawAgain(true);}
 }
 function ctMenu(){
     removeStartOrFinish("Finish")
     this.className = "node nodeFinish nodeAnim"
+
+    if(isSolved){drawAgain(true);}
 }
