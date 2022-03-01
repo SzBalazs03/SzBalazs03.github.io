@@ -69,25 +69,31 @@ function disableInteraction(bool){
     }
 }
 
-async function drawAgain(){
+async function drawAgain(isInstant){
     getMapFromNodes()
     if(start == -1 || end == -1){return}
 
     disableInteraction(true)
     makeMazeInteractable(false)
+
     for (i = 0; i < map.length; i++) {
         if (map[i] == 0) {
             nodes[i].className = "node nodeFull"
-            await new Promise(r => setTimeout(r, 8));
+
+            if(!isInstant){ await new Promise(r => setTimeout(r, 8));}
+            
             nodes[i].classList.add("nodeAnim")
         }else{
             nodes[i].className = "node nodeEmpty"            
         }  
 
     }
+
     nodes[start].className = "node nodeStart" 
-    nodes[end].className = "node nodeFinish" 
-    await new Promise(r => setTimeout(r, 8));
+    nodes[end].className = "node nodeFinish"
+
+    if(!isInstant){ await new Promise(r => setTimeout(r, 8));}
+    
     nodes[start].classList.add("nodeAnim")
     nodes[end].classList.add("nodeAnim")
 
