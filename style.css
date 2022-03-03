@@ -80,7 +80,7 @@
         transform: scale(0.2);
         background-color: aliceblue;
     }
-    35%{
+    40%{
         transform: scale(1.2);
         background-color: var(--colorHalf);
     }
@@ -92,25 +92,27 @@
 
 .node{
     float: left;    
-    height: 4%;
-    width: 2.055%;
-    margin: 1px 1px 1px 1px;
-    border-radius: 3px;
+    height: 4.347%; 
+    width: 2.222%;    
+    border-radius: 0.25vw;
+    border-right: solid 1px lightgray;
+    border-bottom: solid 1px lightgray;
 }
 
 .buttonDiv{ 
-    width: 11%;
+    width: 10vw;
     float: left; 
-    margin-top: 9px;
-    margin-left: 4.3%;    
+    margin-top: 0.5vw;
+    margin-right: 1.5vw; 
+    margin-left: 2.5%;   
 }
-.btn {
+.custom-button {
     width: 100%;
-    height: 40px;
-    padding: 10px 25px;
+    height: 2.7vw;    
     border: 2px solid #000;
     font-family: 'Lato', sans-serif;
     font-weight: 500;
+    font-size: 0.8vw;
     background: whitesmoke;
     cursor: pointer;
     transition: all 0.3s ease;
@@ -118,12 +120,12 @@
     display: inline-block;    
   }   
   
-.btn:hover {
+.custom-button:hover {
     box-shadow:
-    -7px -7px 20px 0px rgba(255, 255, 255, 0.600),
-    -4px -4px 5px 0px rgba(255, 255, 255, 0.600),
-    7px 7px 20px 0px rgba(0, 0, 0, 0.400),
-    4px 4px 5px 0px rgba(0, 0, 0, 0.400);
+    -7px -7px 20px 0px rgba(255, 255, 255, 0.400),
+    -4px -4px 5px 0px rgba(255, 255, 255, 0.400),
+    7px 7px 20px 0px rgba(255, 255, 255, 0.400),
+    4px 4px 5px 0px rgba(255, 255, 255, 0.400);
 }
 
 #slider{
@@ -134,18 +136,14 @@
 
 #tableArea{
     padding: 10px 10px 10px 10px;
-    height: 90%;
-    width: 90%;
+    height: 95%;
+    width: 95%;
     margin: auto;
-    background-color: wheat;    
+    background-color: PapayaWhip;    
 }
 
 #wrapper{
-    height: 690px;
-    width: 1350px;
+    height: 37vw;
+    width: 100%;
     margin: auto;
-}
-
-body{
-    background-color:LightSkyBlue;
 }
