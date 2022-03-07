@@ -131,9 +131,10 @@
 }
 
 #slider{
-    width: 17.5%;
+    width: 15.75%;
     margin-top: 0.5vw;
-    float: left        
+    margin-left: 5%;
+    float: left;       
 }
 
 #tableArea{
