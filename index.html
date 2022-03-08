@@ -13,7 +13,7 @@
     
 </head>
 
-<body>
+<body class="bg-dark"> 
     <!--Navbar-->
     <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
        <div class="container">
@@ -41,52 +41,51 @@
     <!--Pathfinding-->
     <section class="bg-dark text-light pt-5 pb-5 text-center">
         <div class="container">
-
             <div id="wrapper">
+
                 <div id="tableArea" onmousedown="return false" oncontextmenu="return false">
                 
                 
-                    <div id="end"></div>       
-                </div>         
-        
-                <div class="buttonDiv">
-                    <button id="solveButton" class="custom-button" disabled>Solve</button>
-                                    
-                
-        
-                
-                    <button id="resetButton" class="custom-button" disabled>Reset</button>
-                
-        
-                
-                    <select id="algorithm" class="custom-button">                
-                        <option value="aStar">A*</option>
-                        <option value="bfs">Breadth-first search</option>
-                        <option value="dfs">Depth-first search</option>
-                        <option value="dsa">Placeholder2</option>
-                        </select>
-                
-        
-                     <!--   
-                    <button id="againButton" class="custom-button" disabled>Draw Again</button>
-                        -->
-        
-                
-                    <button id="genButton" class="custom-button" disabled>Generate Maze</button>
-                    
-                    
+                    <div id="end"></div> 
+
                 </div> 
-                <input type="range" min="1" max="300" value="1" id="slider">  
-        
+            </div>            
+            <div style="height: 110px;">
+                <div class="row mt-4">
+                    <div class="col-sm-6 col-lg-3">
+                        <input type="range" min="1" max="300" value="1" id="slider">
+                    </div>
+                </div>
+    
+                <div class="row mb-5" style="height: 2.6vw;">
+                    <div class="col-sm-6 col-lg-3 mb-1">
+                        <button id="solveButton" class="custom-button" disabled>Solve</button>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 mb-1">
+                        <select id="algorithm" class="custom-button">                
+                            <option value="aStar">A*</option>
+                            <option value="bfs">Breadth-first search</option>
+                            <option value="dfs">Depth-first search</option>
+                            <option value="dsa">Placeholder2</option>
+                        </select>
+                    </div>
+                    <div class="col-sm-6 col-lg-3 mb-1">
+                        <button id="resetButton" class="custom-button" disabled>Reset</button>                    
+                    </div>
+                    <div class="col-sm-6 col-lg-3 mb-1">
+                        <button id="genButton" class="custom-button" disabled>Generate Maze</button>
+                    </div>
+                </div>
             </div>
-            <br>
+             
 
         </div>
     </section>
 
-    <section class="bg-primary pt-5 pb-3"></section>
+    <!--blue break-->
+    <section class="bg-primary pt-5 pb-5"></section>
 
-    <section class="bg-light text-dark pt-4 text-center">
+
         <div class="container">
         </div>
     </section>
