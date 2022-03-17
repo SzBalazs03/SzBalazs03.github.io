@@ -25,8 +25,9 @@ function initializeButtons() {
     // againButton.addEventListener("click", function(){ drawAgain()})
     genButton.addEventListener("click", function(){ genMaze()})
 
-
-    mazeBuilder()    
+    
+    mazeBuilder()   
+    initializeCards() 
 }
 
 function resetNodesTo(str){     
