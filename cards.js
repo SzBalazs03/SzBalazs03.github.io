@@ -23,7 +23,24 @@ const textValues = [
 ]
 
 function changeValue(){
+    let algSelect = document.getElementById("algorithm")
+    switch (algSelect.value) {
+        case "dfs":
+            algCard.changeData(textValues[2][0], textValues[2][1])
+            break;
+        case "aStar":
+            algCard.changeData(textValues[0][0], textValues[0][1])
+            break;
+        case "bfs":
+            algCard.changeData(textValues[1][0], textValues[1][1])
+            break;
+        default:
+            console.log("algorithm not selected")
+            break;
+    }
 }
+
+
 class bootStrapCard {
     constructor(card, title, text) {
         this.card = card
