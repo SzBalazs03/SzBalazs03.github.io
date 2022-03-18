@@ -21,7 +21,8 @@ async function recursiveBacktracker(current){
 
     let possible = []
 
-    nodes[current].className = "node nodeEmpty"
+    nodes[current].className = "node nodePossiblePath nodeAnim"
+    await new Promise(r => setTimeout(r, 1));
 
     let emptyCount = 0
     for(let i = 0; i < moves.length; i++){
@@ -31,7 +32,7 @@ async function recursiveBacktracker(current){
 
         if((i == 0 && next % xSize == 0) || (i == 3 && current % xSize == 0)) {continue} // outside nodes left-right
 
-        if(nodes[next].className.includes("Empty")) {   //already traversed by alg
+        if(nodes[next].className.includes("Empty") || nodes[next].className.includes("Possible")) {   //already traversed by alg
             emptyCount++
             if(emptyCount > 1)  // current node should be a wall
             {
@@ -42,9 +43,7 @@ async function recursiveBacktracker(current){
 
 
         possible.push(next)
-    }
-
-    if(possible.length == 0){return 0}
+    }    
 
     possible = shuffle(possible)
 
@@ -58,6 +57,9 @@ async function recursiveBacktracker(current){
         }
     }   
 
+
+    nodes[current].className = "node nodeEmpty"
+    await new Promise(r => setTimeout(r, 1));
     return 0
 }
 
