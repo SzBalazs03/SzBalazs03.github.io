@@ -1,3 +1,4 @@
+var waitTime = 0
 async function solveMaze(){ 
     
     if(isSolved){
@@ -15,9 +16,12 @@ async function solveMaze(){
            
     disableInteraction(true)
     makeMazeInteractable(false)
-    var waitTime = 25
-    stopSample = false
-    sampleWaitTime()
+
+    waitTime = 0
+    if(!document.getElementById("isInstantSolve").checked){     //if instant is unchecked then start sampling speed
+        stopSample = false                                      //otherwise waittime stays 0;
+        sampleWaitTime()
+    }      
 
     algSelect = document.getElementById("algorithm")     
     switch (algSelect.value) {
