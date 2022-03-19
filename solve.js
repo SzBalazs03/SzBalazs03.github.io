@@ -61,7 +61,11 @@ function distance(a, b){
 }
 
 function getMapFromNodes(){
-    if(map != ""){map = ""}
+    if(map != ""){
+        map = ""
+        start = -1
+        end = -1
+    }
     
     for(var i = 0; i < nodes.length; i++){        
         if(nodes[i].className.includes("Full")){
