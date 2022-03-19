@@ -10,7 +10,7 @@ async function bfs(){
         let current = queue.shift() // take first element out of array
 
         if(current == end){
-            await shortestPath(prev, prev[end])
+            await shortestPath(prev, prev[end], waitTime)
             return 0
         }
 
