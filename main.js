@@ -111,4 +111,10 @@ function toggleSpeed(bool, sliderToToggle){
         sliderToToggle.disabled = false
     }
 }
+
+async function animateNode(node, className, isAnimated){
+    node.className = "node"
+    node.classList.add(className)
+    if(isAnimated) {await new Promise(r => setTimeout(r, 8))}; // wait for html to reset animation
+    node.classList.add("nodeAnim")
 }
