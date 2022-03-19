@@ -72,8 +72,7 @@ function disableInteraction(bool){
 }
 
 async function drawAgain(isInstant){
-    getMapFromNodes()
-    if(start == -1 || end == -1){return}
+    getMapFromNodes()    
 
     disableInteraction(true)
     makeMazeInteractable(false)
@@ -90,15 +89,19 @@ async function drawAgain(isInstant){
             nodes[i].className = "node nodeEmpty"            
         }  
 
-    }    
-
-    if(!isInstant){ 
-        await animateNode(nodes[start], "nodeStart", true)
-        await animateNode(nodes[end], "nodeFinish", true)
-    }else{
-        animateNode(nodes[start], "nodeStart", false)
-        animateNode(nodes[end], "nodeFinish", false)
-    }        
+    }  
+    
+    if(start != -1 && end != -1){
+        
+        if(!isInstant){ 
+            await animateNode(nodes[start], "nodeStart", true)
+            await animateNode(nodes[end], "nodeFinish", true)
+        }else{
+            animateNode(nodes[start], "nodeStart", false)
+            animateNode(nodes[end], "nodeFinish", false)
+        }      
+        
+    }            
 
     isSolved = false
     makeMazeInteractable(true)
