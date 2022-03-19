@@ -78,7 +78,7 @@ function getMapFromNodes(){
 
 async function sampleWaitTime(){
     while(!stopSample){
-        waitTime = document.getElementById("slider").value
+        waitTime = document.getElementById("solveSpeed").value
         await new Promise(r => setTimeout(r, 100));
     }
 }
