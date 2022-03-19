@@ -37,7 +37,9 @@ function removeStartOrFinish(str){
 
 function mEnter(e){    
     if(e.buttons != 1) {return}
-    this.className = "node nodeFull nodeAnim"            
+    this.className = "node nodeFull nodeAnim"
+    
+    if(isSolved){drawAgain(true);}            
 }
 
 function click(){                
