@@ -83,15 +83,21 @@ async function sampleWaitTime(){
     }
 }
 
-async function shortestPath(cameFrom, current){
+async function shortestPath(cameFrom, current, waitTime){
     while(current != start){       
 
-        nodes[current].className = "node nodeCorrect"
-        await new Promise(r => setTimeout(r, 8)); // wait for html to reset animation
-        nodes[current].classList.add("nodeAnim")
-
+        if(waitTime != 0)
+        {
+            await animateNode(nodes[current], "nodeCorrect", true)
+        }
+        else{
+            animateNode(nodes[current], "nodeCorrect", false)
+        }
+        
+        
         current = cameFrom[current]
 
     } 
     
 }
+
