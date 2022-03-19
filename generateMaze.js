@@ -29,7 +29,7 @@ async function recursiveBacktracker(current){
     let possible = []
 
     nodes[current].className = "node nodePossiblePath nodeAnim"
-    await new Promise(r => setTimeout(r, 1));
+    if(waitTime != 0) {await new Promise(r => setTimeout(r, waitTime));}
 
     let emptyCount = 0
     for(let i = 0; i < moves.length; i++){
@@ -60,13 +60,13 @@ async function recursiveBacktracker(current){
         if(retValue == 0) {continue}
         if(retValue == -1){            
             nodes[possible[i]].className = "node nodeFull nodeAnim"
-            await new Promise(r => setTimeout(r, 1));
+            if(waitTime != 0) {await new Promise(r => setTimeout(r, waitTime));}
         }
     }   
 
 
     nodes[current].className = "node nodeEmpty"
-    await new Promise(r => setTimeout(r, 1));
+    if(waitTime != 0) {await new Promise(r => setTimeout(r, waitTime));}
     return 0
 }
 
