@@ -79,30 +79,31 @@ async function drawAgain(isInstant){
     makeMazeInteractable(false)
 
     for (i = 0; i < map.length; i++) {
-        if (map[i] == 0) {
-            nodes[i].className = "node nodeFull"
+        if (map[i] == 0) {            
 
-            if(!isInstant){ await new Promise(r => setTimeout(r, 8));}
+            if(!isInstant){ await animateNode(nodes[i], "nodeFull", true)}
+            else{
+                animateNode(nodes[i], "nodeFull", false)
+            }            
             
-            nodes[i].classList.add("nodeAnim")
         }else{
             nodes[i].className = "node nodeEmpty"            
         }  
 
-    }
+    }    
 
-    nodes[start].className = "node nodeStart" 
-    nodes[end].className = "node nodeFinish"
-
-    if(!isInstant){ await new Promise(r => setTimeout(r, 8));}
-    
-    nodes[start].classList.add("nodeAnim")
-    nodes[end].classList.add("nodeAnim")
-
+    if(!isInstant){ 
+        await animateNode(nodes[start], "nodeStart", true)
+        await animateNode(nodes[end], "nodeFinish", true)
+    }else{
+        animateNode(nodes[start], "nodeStart", false)
+        animateNode(nodes[end], "nodeFinish", false)
+    }        
 
     isSolved = false
     makeMazeInteractable(true)
     disableInteraction(false)
+}
 
 function toggleSpeed(bool, sliderToToggle){
     if(bool){
