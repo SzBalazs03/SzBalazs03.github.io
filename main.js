@@ -16,7 +16,8 @@ function initializeButtons() {
     let solveButton = document.getElementById("solveButton")       
     let resetButton = document.getElementById("resetButton")  
     // let againButton = document.getElementById("againButton") 
-    let genButton = document.getElementById("genButton")    
+    let genButton = document.getElementById("genButton")   
+    let solveCheckBox = document.getElementById("isInstantSolve") 
     
     disableInteraction(false)
     
@@ -24,7 +25,7 @@ function initializeButtons() {
     resetButton.addEventListener("click", function(){ resetNodesTo("Empty") })
     // againButton.addEventListener("click", function(){ drawAgain()})
     genButton.addEventListener("click", function(){ genMaze()})
-
+    solveCheckBox.addEventListener("click", function(){ toggleSpeed(solveCheckBox.checked ,document.getElementById("solveSpeed"))})
     
     mazeBuilder()   
     initializeCards() 
@@ -102,4 +103,12 @@ async function drawAgain(isInstant){
     isSolved = false
     makeMazeInteractable(true)
     disableInteraction(false)
+
+function toggleSpeed(bool, sliderToToggle){
+    if(bool){
+        sliderToToggle.disabled = true
+    }else{
+        sliderToToggle.disabled = false
+    }
+}
 }
