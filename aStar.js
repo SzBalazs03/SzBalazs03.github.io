@@ -43,7 +43,7 @@ async function aStar()
             
         }
 
-        await new Promise(r => setTimeout(r, waitTime));
+        if(waitTime != 0) {await new Promise(r => setTimeout(r, waitTime));}
 
         openSet.splice(currentOpenSetIndex, 1)  //remove current from openSet
 
@@ -62,8 +62,9 @@ async function aStar()
 
             if(next != end){
                 nodes[next].className = "node nodePossiblePath nodeAnim"
-            }            
-            await new Promise(r => setTimeout(r, waitTime));
+            }
+
+            if(waitTime != 0) { await new Promise(r => setTimeout(r, waitTime));}
 
             if(gScore[current] + 1  < gScore[next] || gScore[next] == undefined){
                 //path from start to current + 1 is better than previous path from start to next

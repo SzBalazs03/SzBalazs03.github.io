@@ -30,7 +30,7 @@ async function bfs(){
             }
         }
 
-        await new Promise(r => setTimeout(r, waitTime));
+        if(waitTime!=0) {await new Promise(r => setTimeout(r, waitTime));}
 
         for(let i = 0; i < moves.length; i++){  // find neighbors of current element
             let next = current + moves[i]
@@ -53,7 +53,7 @@ async function bfs(){
 
             prev[next] = current    // next was reached from current
 
-            await new Promise(r => setTimeout(r, waitTime));
+            if(waitTime!=0) {await new Promise(r => setTimeout(r, waitTime));}
         }
     }
 }

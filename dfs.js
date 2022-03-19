@@ -23,7 +23,7 @@ async function dfs(current){        //-xSize up || +xSize down || -1 left || +1 
         }
         
     }
-    await new Promise(r => setTimeout(r, waitTime));
+    if(waitTime != 0) {await new Promise(r => setTimeout(r, waitTime));}
     
     let i = 0
     for(let j = 0; j < 4; j++) //fill possible array
@@ -46,7 +46,7 @@ async function dfs(current){        //-xSize up || +xSize down || -1 left || +1 
             nodes[next].className = "node nodePossiblePath nodeAnim"
         }
         
-        await new Promise(r => setTimeout(r, waitTime));
+        if(waitTime != 0) {await new Promise(r => setTimeout(r, waitTime));}
     }
     /*
     for(let i = possible.length - 1; i >= 0; i--){   //sort possible moves based on distance from endNode
@@ -68,7 +68,7 @@ async function dfs(current){        //-xSize up || +xSize down || -1 left || +1 
                 nodes[current].classList.add("nodeAnim")
             }
             
-            await new Promise(r => setTimeout(r, waitTime));            
+            if(waitTime != 0) {await new Promise(r => setTimeout(r, waitTime)); }           
             return 0
         }
     }    
