@@ -19,15 +19,12 @@ async function bfs(){
         }
 
         if (current != start){
-            if(nodes[current].className.includes("nodeAnim")){  // if it was already animated reset it
-
-                nodes[current].className = "node nodeTried"
-                await new Promise(r => setTimeout(r, 8)); // wait for html to reset animation
-                nodes[current].classList.add("nodeAnim")
-    
-            }else{
-                nodes[current].className = "node nodeTried nodeAnim"
+            if(waitTime != 0){
+                await animateNode(nodes[current], "nodeTried", true)
             }
+            else{
+                await animateNode(nodes[current], "nodeTried", false)
+            }            
         }
 
         if(waitTime!=0) {await new Promise(r => setTimeout(r, waitTime));}
@@ -47,7 +44,12 @@ async function bfs(){
             
 
             if(next != end && !nodes[next].className.includes("PossiblePath")){
-                nodes[next].className = "node nodePossiblePath nodeAnim"
+                if(waitTime != 0){
+                    await animateNode(nodes[next], "nodePossiblePath", true)
+                }
+                else{
+                    await animateNode(nodes[next], "nodePossiblePath", false)
+                }
             }   
             queue.push(next)    //put available neighbor into the array
 

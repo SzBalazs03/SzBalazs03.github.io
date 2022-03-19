@@ -14,7 +14,7 @@ async function aStar()
     let moves = [1, xSize, -xSize, -1] //-xSize up || +1 right || +xSize down || -1 left
 
     while(openSet.length != 0)
-    {
+    {        
         let current = openSet[0]
         let currentOpenSetIndex = 0
         for(let i = 1; i < openSet.length; i++){
@@ -31,16 +31,13 @@ async function aStar()
         }
 
         if(current != start){ //color current unless it is start
-            if(nodes[current].className.includes("nodeAnim")){  // if it was already animated reset it
-    
-                nodes[current].className = "node nodeTried"
-                await new Promise(r => setTimeout(r, 8)); // wait for html to reset animation
-                nodes[current].classList.add("nodeAnim")
-    
-            }else{
-                nodes[current].className = "node nodeTried nodeAnim"
-            }
             
+            if(waitTime != 0) {
+                await animateNode(nodes[current], "nodeTried", true)
+            }
+            else {
+                animateNode(nodes[current], "nodeTried", false)
+            } 
         }
 
         if(waitTime != 0) {await new Promise(r => setTimeout(r, waitTime));}

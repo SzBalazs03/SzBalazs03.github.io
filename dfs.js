@@ -12,15 +12,12 @@ async function dfs(current){        //-xSize up || +xSize down || -1 left || +1 
     }
 
     if(current != start){ //dont recolor start
-        if(nodes[current].className.includes("nodeAnim")){  // if it was already animated reset it
-
-            nodes[current].className = "node nodeTried"
-            await new Promise(r => setTimeout(r, 8)); // wait for html to reset animation
-            nodes[current].classList.add("nodeAnim")
-
-        }else{
-            nodes[current].className = "node nodeTried nodeAnim"
+        if(waitTime != 0) {
+            await animateNode(nodes[current], "nodeTried", true)
         }
+        else {
+            animateNode(nodes[current], "nodeTried", false)
+        } 
         
     }
     if(waitTime != 0) {await new Promise(r => setTimeout(r, waitTime));}
@@ -43,7 +40,12 @@ async function dfs(current){        //-xSize up || +xSize down || -1 left || +1 
         possible[i] = next
         i++
         if(next != end){
-            nodes[next].className = "node nodePossiblePath nodeAnim"
+            if(waitTime != 0) {
+                await animateNode(nodes[next], "nodePossiblePath", true)
+            }
+            else {
+                animateNode(nodes[next], "nodePossiblePath", false)
+            }
         }
         
         if(waitTime != 0) {await new Promise(r => setTimeout(r, waitTime));}
@@ -63,9 +65,12 @@ async function dfs(current){        //-xSize up || +xSize down || -1 left || +1 
     for(let i = 0; i < possible.length; i++){   //recursive call
         if(await dfs(possible[i]) == 0){            
             if(current != start && current != end){                
-                nodes[current].className = "node nodeCorrect"
-                await new Promise(r => setTimeout(r, 8)); // wait for html to reset animation
-                nodes[current].classList.add("nodeAnim")
+                if(waitTime != 0) {
+                    await animateNode(nodes[current], "nodeCorrect", true)
+                }
+                else {
+                    animateNode(nodes[current], "nodeCorrect", false)
+                }
             }
             
             if(waitTime != 0) {await new Promise(r => setTimeout(r, waitTime)); }           
