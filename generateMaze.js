@@ -1,6 +1,12 @@
 async function genMaze(){       
     disableInteraction(true)
     makeMazeInteractable(false)
+
+    waitTime = 0
+    if(!document.getElementById("isInstantSolve").checked){     //if instant is unchecked then start sampling speed
+        stopSample = false                                      //otherwise waittime stays 0;
+        sampleWaitTime()
+    } 
     
     resetNodesTo("Full")
 
@@ -11,6 +17,7 @@ async function genMaze(){
     await recursiveBacktracker(chosenStart)
 
 
+    stopSample = true
     isSolved = false
     makeMazeInteractable(true)
     disableInteraction(false)
