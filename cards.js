@@ -1,7 +1,6 @@
 
 
-function initializeCards() {
-    algCard.changeData()
+function initializeCards() {  
 
     
     let algSelect = document.getElementById("algorithm")
@@ -57,7 +56,8 @@ class bootStrapCard {
             
     
             this.init()
-        }        
+        } 
+        this.init()       
     }
 
     init() {
