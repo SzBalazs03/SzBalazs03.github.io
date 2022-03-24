@@ -26,13 +26,13 @@ function changeValue(){
     let algSelect = document.getElementById("algorithm")
     switch (algSelect.value) {
         case "dfs":
-            algCard.changeData(textValues[2][0], textValues[2][1])
+            algCard.changeData(textValues[2][0], textValues[2][1], textValues[2][2])
             break;
         case "aStar":
-            algCard.changeData(textValues[0][0], textValues[0][1])
+            algCard.changeData(textValues[0][0], textValues[0][1], textValues[0][2])
             break;
         case "bfs":
-            algCard.changeData(textValues[1][0], textValues[1][1])
+            algCard.changeData(textValues[1][0], textValues[1][1], textValues[1][2])
             break;
         default:
             console.log("algorithm not selected")
@@ -42,10 +42,11 @@ function changeValue(){
 
 
 class bootStrapCard {
-    constructor(card, title, text) {
+    constructor(card, title, text, href) {
         this.card = card
         this.title = title
         this.text = text
+        this.href = href
 
 
         this.changeData = function(title, text) {
@@ -71,10 +72,13 @@ class bootStrapCard {
             if (cNodes[i].className == "card-text") {
                 cNodes[i].innerText = this.text
             }
+            if (cNodes[i].id == "algCardButton") {
+                cNodes[i].href = this.href
+            }
         }
     }
 
    
 }
 
-const algCard = new bootStrapCard(document.getElementById("algCard"), textValues[0][0], textValues[0][1])
+const algCard = new bootStrapCard(document.getElementById("algCard"), textValues[0][0], textValues[0][1], textValues[0][2])
