@@ -49,14 +49,12 @@ class bootStrapCard {
         this.href = href
 
 
-        this.changeData = function(title, text) {
-            if (title != undefined) {
-                this.title = title
-            }
-    
-            if (text != undefined) {
-                this.text = text
-            }
+        this.changeData = function(title, text, href) {
+            
+            this.title = title != undefined ? title : ""
+            this.text = text != undefined ? text : ""
+            this.href = href != undefined ? href : ""
+            
     
             this.init()
         }        
