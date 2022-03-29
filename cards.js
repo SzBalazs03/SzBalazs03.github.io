@@ -1,10 +1,11 @@
 
 
-function initializeCards() {  
-
-    
+function initializeCards() {     
     let algSelect = document.getElementById("algorithm")
-    algSelect.addEventListener("click", function(){ changeValue()})
+    algSelect.addEventListener("click", function(){ changeValue(algSelect, algCard, algTextValues)})
+
+    let mazeGenSelect = document.getElementById("mazeGenAlg")
+    mazeGenSelect.addEventListener("click", function(){ changeValue(mazeGenSelect, mazeCard, mazeGenTextValues)})
 
 }
 
