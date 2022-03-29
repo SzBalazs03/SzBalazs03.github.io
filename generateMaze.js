@@ -8,11 +8,12 @@ async function genMaze(){
         sampleWaitTime()
     } 
     
-    resetNodesTo("Full")
+    resetNodesTo("Full")    
+    
 
-    let startlocation = [0, ySize - 1, (ySize - 1) * xSize, (ySize * xSize) - 1 ]
+    let chosenStart = Math.floor(Math.random() * xSize * ySize)    
+    
 
-    let chosenStart = startlocation[Math.floor(Math.random(0, startlocation.length))]   
 
     await recursiveBacktracker(chosenStart)
 
