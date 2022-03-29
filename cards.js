@@ -45,7 +45,7 @@ class bootStrapCard {
             if (cNodes[i].className == "card-text") {
                 cNodes[i].innerText = this.text
             }
-            if (cNodes[i].id == "algCardButton") {
+            if (cNodes[i].id == "readMoreButton") {
                 cNodes[i].href = this.href
             }
         }
