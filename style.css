@@ -138,6 +138,7 @@
 
 .card{
     margin: auto;
+    min-height: 100%;
     width: 90%;
     font-size: 1.125rem;
 }
