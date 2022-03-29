@@ -8,22 +8,9 @@ function initializeCards() {
 
 }
 
-function changeValue(){
-    let algSelect = document.getElementById("algorithm")
-    switch (algSelect.value) {
-        case "dfs":
-            algCard.changeData(textValues[2][0], textValues[2][1], textValues[2][2])
-            break;
-        case "aStar":
-            algCard.changeData(textValues[0][0], textValues[0][1], textValues[0][2])
-            break;
-        case "bfs":
-            algCard.changeData(textValues[1][0], textValues[1][1], textValues[1][2])
-            break;
-        default:
-            console.log("algorithm not selected")
-            break;
-    }
+function changeValue(button, card, textArray){
+    let key = button.value    
+    card.changeData(textArray[key].title, textArray[key].body, textArray[key].href)
 }
 
 
