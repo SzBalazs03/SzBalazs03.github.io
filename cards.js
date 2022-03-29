@@ -99,3 +99,5 @@ const mazeGenTextValues = {
 }
 
 const algCard = new bootStrapCard(document.getElementById("algCard"), algTextValues.aStar.title, algTextValues.aStar.body, algTextValues.aStar.href)
+const mazeCard = new bootStrapCard(document.getElementById("mazeGenCard"), mazeGenTextValues.backTrack.title, mazeGenTextValues.backTrack.body, mazeGenTextValues.backTrack.href)
+
