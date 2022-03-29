@@ -81,4 +81,18 @@ class bootStrapCard {
    
 }
 
-const algCard = new bootStrapCard(document.getElementById("algCard"), textValues[0][0], textValues[0][1], textValues[0][2])
+const algCard = new bootStrapCard(document.getElementById("algCard"), textValues[0][0], textValues[0][1], textValues[0][2])const algTextValues = {
+const mazeGenTextValues = {
+    backTrack: {
+        title: "Randomized depth-first search",
+        body: "Frequently implemented with a stack, this approach is one of the simplest ways to generate a maze using a computer.",
+        href: "https://en.wikipedia.org/wiki/Maze_generation_algorithm#Randomized_depth-first_search"
+    },
+    prim: {
+        title: "Randomized Prim's algorithm",
+        body: "Prim's algorithm is a greedy algorithm that finds a minimum spanning tree for a weighted undirected graph.",
+        href: "https://en.wikipedia.org/wiki/Maze_generation_algorithm#Randomized_Prim's_algorithm"
+    }
+}
+
+const algCard = new bootStrapCard(document.getElementById("algCard"), algTextValues.aStar.title, algTextValues.aStar.body, algTextValues.aStar.href)
