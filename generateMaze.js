@@ -14,8 +14,20 @@ async function genMaze(){
     let chosenStart = Math.floor(Math.random() * xSize * ySize)    
     
 
+    algSelect = document.getElementById("mazeGenAlg")     
+    switch (algSelect.value) {
+        case "backTrack":
+            await recursiveBacktracker(chosenStart);
+            break;
+        case "prim":
+            await randomizedPrim(chosenStart);
+            break;        
+        default:
+            console.log("algorithm not selected")
+            break;
+    }
 
-    await recursiveBacktracker(chosenStart)
+    
 
 
     stopSample = true
