@@ -1,7 +1,7 @@
 async function aStar()
 {
     
-    let openSet = [start]   //discovered nodes that might need to re rechecked
+    let openSet = [start]   //discovered nodes that might need to be rechecked
 
     let cameFrom = []   //cameFrom[n] is the node preceding n on the cheapest path
 
