@@ -66,7 +66,6 @@ class bootStrapCard {
    
 }
 
-const algCard = new bootStrapCard(document.getElementById("algCard"), textValues[0][0], textValues[0][1], textValues[0][2])const algTextValues = {
 const algTextValues = {
     aStar: {
         title : "A* search",
