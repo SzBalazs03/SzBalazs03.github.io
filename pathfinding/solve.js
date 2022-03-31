@@ -85,8 +85,14 @@ function getMapFromNodes(){
 }
 
 async function sampleWaitTime(){
-    while(!stopSample){
-        waitTime = document.getElementById("solveSpeed").value
+    while(!stopSample){        
+        if(document.getElementById("isInstantSolve").checked){
+            waitTime = 0            
+        }else{
+            waitTime = document.getElementById("solveSpeed").value  
+            
+        }  
+        
         await new Promise(r => setTimeout(r, 100));
     }
 }
