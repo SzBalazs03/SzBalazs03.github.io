@@ -69,6 +69,11 @@ const algTextValues = {
         title: "Depth-first search",
         body: "is an algorithm for traversing or searching tree or graph data structures. It starts at the root node and explores as far as possible along each branch before backtracking.",
         href: "https://en.wikipedia.org/wiki/Depth-first_search"
+    },
+    biBfs: {
+        title: "Bidirectional search",
+        body: "It runs two simultaneous searches: one forward from the initial state, and one backward from the goal, stopping when the two meet.",
+        href: "https://en.wikipedia.org/wiki/Bidirectional_search"
     }
 }
 
