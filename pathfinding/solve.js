@@ -92,7 +92,7 @@ async function sampleWaitTime(){
 }
 
 async function shortestPath(cameFrom, current, waitTime){
-    while(current != start){       
+    while(current != start && current != end){       
 
         if(waitTime != 0)
         {
