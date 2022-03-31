@@ -32,6 +32,9 @@ async function solveMaze(){
         case "bfs":
             await bfs()
             break;
+        case "biBfs":
+            await biDirectionalBfs()
+            break;
         default:
             console.log("algorithm not selected")
             break;
