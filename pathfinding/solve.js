@@ -3,7 +3,7 @@ async function solveMaze(){
     
     if(isSolved){
         await drawAgain(true)
-        await new Promise(r => setTimeout(r, 500));
+        await new Promise(r => setTimeout(r, 400));
     }
 
     getMapFromNodes()
